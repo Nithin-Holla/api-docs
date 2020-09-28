@@ -419,14 +419,14 @@
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}'</span> <span class="nt">--form</span> <span class="nv">file</span><span class="o">=</span>@./my-file.mp3
 </code></pre></div>
 <blockquote>
-<p>Example response sent when no <code>callbackUrl</code> is specified:</p>
+<p>Example A: POST request sent when you specify a <code>callbackUrl</code>:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    
     </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{JOB_ID}}"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553871202831</span><span class="p">,</span><span class="w">
     </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
@@ -435,15 +435,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Example of POST request sent to <code>callbackUrl</code>:</p>
+<p>Example B: Response sent when you don&#39;t specify a <code>callbackUrl</code>:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-</span><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    
     </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{JOB_ID}}"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553871202831</span><span class="p">,</span><span class="w">
     </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
@@ -491,7 +490,7 @@
 <h3 id='uploading-with-callbackurl'>Uploading With <code>callbackUrl</code></h3>
 <ol>
 <li>When you make a request with a <code>callbackUrl</code>, we send the final status of your upload to this url.</li>
-<li>When processing is complete, this status is sent via a <code>POST</code> request.
+<li>When processing is complete, this status is sent via a <code>POST</code> request (see Example A in right pane).
 
 <ul>
 <li><code>status</code> can either be <code>DONE</code> or <code>ERROR</code>.</li>
@@ -508,8 +507,8 @@
 </aside>
 <h3 id='uploading-without-callbackurl'>Uploading Without <code>callbackUrl</code></h3>
 <ol>
-<li>When you make a request without the <code>callbackUrl</code>, store the value of the <code>jobId</code> returned upon a successful call.</li>
-<li>Use the <code>jobId</code> to periodically check the <a href="#">status</a> of the upload request (e.g. every 5 mins).
+<li>When you make a request without the <code>callbackUrl</code>, store the value of the <code>jobId</code> returned upon a successful call (see Example B in right pane).</li>
+<li>Use the <code>jobId</code> to periodically check the <a href="#getting-the-status-of-a-transcription">status</a> of the upload request (e.g. every 5 mins).
 
 <ul>
 <li><code>status</code> can either be <code>OPEN</code>, <code>DONE</code> or <code>ERROR</code>.</li>
