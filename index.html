@@ -464,7 +464,7 @@
 <tr>
 <td>language</td>
 <td><code>en</code></td>
-<td><code>nl</code>, <code>en</code>, <code>de</code>, <code>fr</code>, <code>da</code>, <code>sv</code>, <code>fi</code>, <code>no</code>, <code>es</code>, <code>it</code>, <code>pt</code></td>
+<td><code>nl</code>, <code>en</code>, <code>de</code>, <code>fr</code>, <code>lt</code>, <code>da</code>, <code>fi</code>, <code>sv</code>, <code>es</code>, <code>pt</code>, <code>ru</code>, <code>el</code>, <code>bg</code>, <code>no</code>, <code>ro</code>, <code>it</code>, <code>tr</code>, <code>hu</code>, <code>pl</code>, <code>hi</code>, <code>ar</code>, <code>ja</code>, <code>ko</code>, <code>ca</code>, <code>sk</code>, <code>sl</code>, <code>cmn</code>, <code>cs</code>, <code>hr</code>, <code>lv</code>, <code>ms</code></td>
 </tr>
 <tr>
 <td>transcriptionType</td>
@@ -1258,9 +1258,33 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <h2 id='support'>Support</h2>
 <p>If you need any technical assistance, feel free to contact <code>info (at) amberscript (dot) com</code></p>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-    We are currently improving our error messages. We appreciate your patience during this time.
-</aside>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid. Please check your request body and/or parameters.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is invalid.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- You do have access to requested resource.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The requested resource could not be found.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
