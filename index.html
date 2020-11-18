@@ -381,14 +381,14 @@
 <aside class="notice">
     Remember to authenticate requests by providing the <code>apiKey</code> as a query parameter.
 </aside>
-<h2 id='uploading-a-file'>Uploading A File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}"</span><span class="o">)</span>
+<h2 id='uploading-a-file'>Uploading A File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/upload-media</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/upload-media</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span>
     <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">transcriptionType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">transcription</span><span class="dl">'</span><span class="p">,</span>
@@ -407,7 +407,7 @@
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://qs.amberscript.com/jobs/upload-media'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.amberscript.com/api/jobs/upload-media'</span>
 <span class="n">filepath</span> <span class="o">=</span> <span class="s">'/Users/userA/Downloads/my-file.mp3'</span>
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobType"</span><span class="p">:</span><span class="s">"direct"</span><span class="p">,</span><span class="s">"language"</span><span class="p">:</span><span class="s">"nl"</span><span class="p">,</span><span class="s">"transcriptionType"</span><span class="p">:</span><span class="s">"transcription"</span><span class="p">,</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s">'file'</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)}</span>
@@ -416,7 +416,7 @@
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}'</span> <span class="nt">--form</span> <span class="nv">file</span><span class="o">=</span>@./my-file.mp3
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}'</span> <span class="nt">--form</span> <span class="nv">file</span><span class="o">=</span>@./my-file.mp3
 </code></pre></div>
 <blockquote>
 <p>Example A: POST request sent when you specify a <code>callbackUrl</code>:</p>
@@ -527,12 +527,12 @@
 </ul>
 
 <p><em>If you need support for a different file format, please get in touch with us: info (at) amberscript (dot) com</em></p>
-<h2 id='getting-the-status-of-a-transcription'>Getting The Status Of A Transcription</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='getting-the-status-of-a-transcription'>Getting The Status Of A Transcription</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/status</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/status</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">}</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -542,7 +542,7 @@
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs/status"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/status"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span><span class="p">,</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -550,7 +550,7 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -585,12 +585,12 @@
 <td>YOUR_JOB_ID</td>
 </tr>
 </tbody></table>
-<h2 id='exporting-a-finished-file'>Exporting A Finished File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='exporting-a-finished-file'>Exporting A Finished File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/export</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span> <span class="p">}</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -600,7 +600,7 @@
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs/export"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/export"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span><span class="p">,</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">,</span><span class="s">"format"</span><span class="p">:</span><span class="s">"json"</span><span class="p">}</span>
 
@@ -608,7 +608,7 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/export?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY&amp;format=json'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/export?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY&amp;format=json'</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -706,12 +706,12 @@
 <td>Determines the max duration (in milliseconds) a single subtitle frame should be shown. (srt only)</td>
 </tr>
 </tbody></table>
-<h2 id='export-to-stl'>Export To STL</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/export-stl?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='export-to-stl'>Export To STL</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-stl?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/export-stl</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-stl</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -721,7 +721,7 @@
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs/export-stl"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/export-stl"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span> <span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -729,7 +729,7 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/export-stl?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/export-stl?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns a JSON downloadUrl structured like this:</p>
@@ -765,12 +765,12 @@
 <td>Float which sets the maximum number of seconds given for each row of subtitles.</td>
 </tr>
 </tbody></table>
-<h2 id='export-to-srt'>Export To SRT</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/export-srt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='export-to-srt'>Export To SRT</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-srt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/export-srt</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-srt</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -780,7 +780,7 @@
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs/export-srt"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/export-srt"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span> <span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -788,7 +788,7 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/export-srt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/export-srt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The command returns SRT structured like this:</p>
@@ -844,12 +844,12 @@ This allows you to edit errors
 <td>Float which sets the maximum number of seconds given for each row of subtitles.</td>
 </tr>
 </tbody></table>
-<h2 id='export-to-vtt'>Export To VTT</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/export-vtt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='export-to-vtt'>Export To VTT</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-vtt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/export-vtt</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-vtt</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -859,7 +859,7 @@ This allows you to edit errors
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs/export-vtt"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/export-vtt"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span> <span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -867,7 +867,7 @@ This allows you to edit errors
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/export-vtt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/export-vtt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The command returns VTT structured like this:</p>
@@ -925,12 +925,12 @@ This allows you to edit errors
 <td>Float which sets the maximum number of seconds given for each row of subtitles.</td>
 </tr>
 </tbody></table>
-<h2 id='export-to-text'>Export To TEXT</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/export-txt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='export-to-text'>Export To TEXT</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-txt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/export-txt</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-txt</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -940,7 +940,7 @@ This allows you to edit errors
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs/export-txt"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/export-txt"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span> <span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -948,7 +948,7 @@ This allows you to edit errors
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/export-txt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/export-txt?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The command returns TXT structured like this:</p>
@@ -993,12 +993,12 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <td>Integer which sets the maximum number of characters per row.</td>
 </tr>
 </tbody></table>
-<h2 id='export-to-json'>Export To JSON</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs/export-json?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='export-to-json'>Export To JSON</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-json?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs/export-json</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-json</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -1008,7 +1008,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs/export-json"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/export-json"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span> <span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -1016,7 +1016,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs/export-json?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/export-json?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The command returns JSON structured like this:</p>
@@ -1091,12 +1091,12 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <td>YOUR_JOB_ID</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-job'>Delete A Job</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='delete-a-job'>Delete A Job</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -1106,7 +1106,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span> <span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -1114,7 +1114,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> DELETE <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> DELETE <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The command returns JSON structured like this:</p>
@@ -1140,12 +1140,12 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <td>YOUR_JOB_ID</td>
 </tr>
 </tbody></table>
-<h2 id='get-list-of-jobs'>Get List Of Jobs</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://qs.amberscript.com/jobs?apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='get-list-of-jobs'>Get List Of Jobs</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs?apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://qs.amberscript.com/jobs</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -1155,7 +1155,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://qs.amberscript.com/jobs"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
 
@@ -1163,7 +1163,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://qs.amberscript.com/jobs?apiKey=YOUR_API_KEY'</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs?apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <blockquote>
 <p>The command returns JSON structured like this:</p>
