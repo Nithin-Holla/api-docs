@@ -315,6 +315,9 @@
                     <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
                   <li>
+                    <a href="#language-codes" class="toc-h2 toc-link" data-title="Language Codes">Language Codes</a>
+                  </li>
+                  <li>
                     <a href="#uploading-a-file" class="toc-h2 toc-link" data-title="Uploading A File">Uploading A File</a>
                   </li>
                   <li>
@@ -380,6 +383,134 @@
 <aside class="notice">
     Remember to authenticate requests by providing the <code>apiKey</code> as a query parameter.
 </aside>
+<h2 id='language-codes'>Language Codes</h2>
+<table><thead>
+<tr>
+<th>Language</th>
+<th>Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Arabic</td>
+<td>ar</td>
+</tr>
+<tr>
+<td>Bulgarian</td>
+<td>bg</td>
+</tr>
+<tr>
+<td>Chinese (Mandarin)</td>
+<td>cmn</td>
+</tr>
+<tr>
+<td>Croatian</td>
+<td>hr</td>
+</tr>
+<tr>
+<td>Czech</td>
+<td>cs</td>
+</tr>
+<tr>
+<td>Danish</td>
+<td>da</td>
+</tr>
+<tr>
+<td>Dutch</td>
+<td>nl</td>
+</tr>
+<tr>
+<td>English (all accents)</td>
+<td>en</td>
+</tr>
+<tr>
+<td>Finnish</td>
+<td>fi</td>
+</tr>
+<tr>
+<td>French</td>
+<td>fr</td>
+</tr>
+<tr>
+<td>German</td>
+<td>de</td>
+</tr>
+<tr>
+<td>Greek</td>
+<td>el</td>
+</tr>
+<tr>
+<td>Hindi</td>
+<td>hi</td>
+</tr>
+<tr>
+<td>Hungarian</td>
+<td>hu</td>
+</tr>
+<tr>
+<td>Italian</td>
+<td>it</td>
+</tr>
+<tr>
+<td>Japanese</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>Korean</td>
+<td>ko</td>
+</tr>
+<tr>
+<td>Latvian</td>
+<td>lv</td>
+</tr>
+<tr>
+<td>Lithuanian</td>
+<td>lt</td>
+</tr>
+<tr>
+<td>Malay</td>
+<td>ms</td>
+</tr>
+<tr>
+<td>Norwegian</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Polish</td>
+<td>pl</td>
+</tr>
+<tr>
+<td>Portuguese</td>
+<td>pt</td>
+</tr>
+<tr>
+<td>Romanian</td>
+<td>ro</td>
+</tr>
+<tr>
+<td>Russian</td>
+<td>ru</td>
+</tr>
+<tr>
+<td>Slovakian</td>
+<td>sk</td>
+</tr>
+<tr>
+<td>Slovenian</td>
+<td>sl</td>
+</tr>
+<tr>
+<td>Spanish</td>
+<td>es</td>
+</tr>
+<tr>
+<td>Swedish</td>
+<td>sv</td>
+</tr>
+<tr>
+<td>Turkish</td>
+<td>tr</td>
+</tr>
+</tbody></table>
 <h2 id='uploading-a-file'>Uploading A File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
