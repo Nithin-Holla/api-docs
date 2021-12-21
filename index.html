@@ -321,6 +321,9 @@
                     <a href="#uploading-a-file" class="toc-h2 toc-link" data-title="Uploading A File">Uploading A File</a>
                   </li>
                   <li>
+                    <a href="#requesting-for-translated-subtitles" class="toc-h2 toc-link" data-title="Requesting for translated subtitles">Requesting for translated subtitles</a>
+                  </li>
+                  <li>
                     <a href="#getting-the-status-of-a-transcription" class="toc-h2 toc-link" data-title="Getting The Status Of A Transcription">Getting The Status Of A Transcription</a>
                   </li>
                   <li>
@@ -816,7 +819,7 @@
 <tr>
 <td>transcriptionType</td>
 <td><code>transcription</code></td>
-<td><code>transcription</code>, <code>captions</code></td>
+<td><code>transcription</code>, <code>captions</code>, <code>translatedSubtitles</code></td>
 </tr>
 <tr>
 <td>jobType</td>
@@ -840,8 +843,13 @@
 </tr>
 <tr>
 <td>turnaroundTime (OPTIONAL)</td>
-<td><code>FIVE_DAYS</code></td>
+<td><code>FIVE_DAYS</code> - <code>transcription</code>/<code>captions</code>, <code>EIGHT_DAYS</code> - <code>translatedSubtitles</code></td>
 <td><code>ONE_DAY</code>, <code>TWO_DAYS</code>, <code>THREE_DAYS</code>, <code>FOUR_DAYS</code>, <code>FIVE_DAYS</code>, <code>SIX_DAYS</code>, <code>SEVEN_DAYS</code>, <code>EIGHT_DAYS</code>, <code>NINE_DAYS</code>, <code>TEN_DAYS</code> Hint: Get in touch if you need a turnaround time other than the default one.</td>
+</tr>
+<tr>
+<td>targetLanguage (OPTIONAL)</td>
+<td></td>
+<td><code>pl</code>, <code>en</code>, <code>ru</code>, <code>fr-ca</code>, <code>ca</code>, <code>zh</code>, <code>ga</code>, <code>hu</code>, <code>pt</code>, <code>da</code>, <code>de-at</code>, <code>fr</code>, <code>nl</code>, <code>en-au</code>, <code>ko</code>, <code>it</code>, <code>de</code>, <code>fi</code>, <code>cmn</code>, <code>ja</code>, <code>de-ch</code>, <code>en-us</code>, <code>ro</code>, <code>pt-br</code>, <code>nl-be</code>, <code>cs</code>, <code>no</code>, <code>sv</code>, <code>en-uk</code>, <code>es</code></td>
 </tr>
 </tbody></table>
 <h3 id='uploading-with-callbackurl'>Uploading With <code>callbackUrl</code></h3>
@@ -879,6 +887,39 @@
 </ul>
 
 <p><em>If you need support for a different file format, please get in touch with us: info (at) amberscript (dot) com</em></p>
+<h2 id='requesting-for-translated-subtitles'>Requesting for translated subtitles</h2>
+<p>Request translated subtitles for uploaded file. </p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /jobs/translatedSubtitles</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description/Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sourceJobId</td>
+<td>NONE</td>
+<td><code>SOURCE_JOB_ID</code></td>
+</tr>
+<tr>
+<td>targetLanguage</td>
+<td></td>
+<td><code>pl</code>, <code>en</code>, <code>ru</code>, <code>fr-ca</code>, <code>ca</code>, <code>zh</code>, <code>ga</code>, <code>hu</code>, <code>pt</code>, <code>da</code>, <code>de-at</code>, <code>fr</code>, <code>nl</code>, <code>en-au</code>, <code>ko</code>, <code>it</code>, <code>de</code>, <code>fi</code>, <code>cmn</code>, <code>ja</code>, <code>de-ch</code>, <code>en-us</code>, <code>ro</code>, <code>pt-br</code>, <code>nl-be</code>, <code>cs</code>, <code>no</code>, <code>sv</code>, <code>en-uk</code>, <code>es</code></td>
+</tr>
+<tr>
+<td>turnaroundTime (OPTIONAL)</td>
+<td><code>EIGHT_DAYS</code></td>
+<td><code>ONE_DAY</code>, <code>TWO_DAYS</code>, <code>THREE_DAYS</code>, <code>FOUR_DAYS</code>, <code>FIVE_DAYS</code>, <code>SIX_DAYS</code>, <code>SEVEN_DAYS</code>, <code>EIGHT_DAYS</code>, <code>NINE_DAYS</code>, <code>TEN_DAYS</code> Hint: Get in touch if you need a turnaround time other than the default one.</td>
+</tr>
+<tr>
+<td>callbackUrl (OPTIONAL)</td>
+<td>NONE</td>
+<td><code>YOUR_CALLBACK_URL</code></td>
+</tr>
+</tbody></table>
 <h2 id='getting-the-status-of-a-transcription'>Getting The Status Of A Transcription</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
@@ -916,14 +957,15 @@
     </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retrieve the status of a specific job.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /jobs/status</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1027,9 +1069,9 @@
 <aside class="warning">DEPRECATED</aside>
 
 <p>Export a finished file to several formats.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /jobs/export</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1091,9 +1133,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Export a finished file to STL.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /jobs/export-stl</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1165,9 +1207,9 @@ you is the edit function.
 This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to SRT.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET /jobs/export-srt</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1246,9 +1288,9 @@ you is the edit function.
 This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to VTT.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /jobs/export-vtt</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1309,9 +1351,9 @@ This allows you to edit errors
 Speaker 1: Hi, welcome to Amber script, in this short video, we would like to show you how you can use Amber script at its full potential. The first function we would like to show you is the edit function. This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to TEXT.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /jobs/export-txt</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1427,9 +1469,9 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Export a finished file to JSON.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET /jobs/export-json</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1476,9 +1518,9 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Delete a specific job.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>DELETE /jobs</code></p>
-<h3 id='query-parameters-9'>Query Parameters</h3>
+<h3 id='query-parameters-10'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1566,9 +1608,9 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>Get a list of jobs.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET /jobs</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
