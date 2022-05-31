@@ -321,7 +321,7 @@
                     <a href="#uploading-a-file" class="toc-h2 toc-link" data-title="Uploading A File">Uploading A File</a>
                   </li>
                   <li>
-                    <a href="#requesting-for-translated-subtitles" class="toc-h2 toc-link" data-title="Requesting for translated subtitles">Requesting for translated subtitles</a>
+                    <a href="#request-for-translated-subtitles-for-an-existing-manual-captions-job" class="toc-h2 toc-link" data-title="Request for translated subtitles for an existing manual captions job">Request for translated subtitles for an existing manual captions job</a>
                   </li>
                   <li>
                     <a href="#getting-the-status-of-a-transcription" class="toc-h2 toc-link" data-title="Getting The Status Of A Transcription">Getting The Status Of A Transcription</a>
@@ -780,7 +780,8 @@
     </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -796,7 +797,8 @@
     </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -848,7 +850,7 @@
 </tr>
 <tr>
 <td>targetLanguage (OPTIONAL)</td>
-<td></td>
+<td>NONE</td>
 <td><code>pl</code>, <code>en</code>, <code>ru</code>, <code>fr-ca</code>, <code>ca</code>, <code>zh</code>, <code>ga</code>, <code>hu</code>, <code>pt</code>, <code>da</code>, <code>de-at</code>, <code>fr</code>, <code>nl</code>, <code>en-au</code>, <code>ko</code>, <code>it</code>, <code>de</code>, <code>fi</code>, <code>cmn</code>, <code>ja</code>, <code>de-ch</code>, <code>en-us</code>, <code>ro</code>, <code>pt-br</code>, <code>nl-be</code>, <code>cs</code>, <code>no</code>, <code>sv</code>, <code>en-uk</code>, <code>es</code></td>
 </tr>
 </tbody></table>
@@ -887,8 +889,49 @@
 </ul>
 
 <p><em>If you need support for a different file format, please get in touch with us: info (at) amberscript (dot) com</em></p>
-<h2 id='requesting-for-translated-subtitles'>Requesting for translated subtitles</h2>
-<p>Request translated subtitles for uploaded file. </p>
+<h2 id='request-for-translated-subtitles-for-an-existing-manual-captions-job'>Request for translated subtitles for an existing manual captions job</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/translatedSubtitles?sourceJobId=SOURCE_JOB_ID&amp;targetLanguage=nl&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/translatedSubtitles</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">sourceJobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SOURCE_JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">targetLanguage</span><span class="p">:</span> <span class="dl">'</span><span class="s1">nl</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">}</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/translatedSubtitles"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"sourceJobId"</span><span class="p">:</span><span class="s">"SOURCE_JOB_ID"</span><span class="p">,</span><span class="s">"targetLanguage"</span><span class="p">:</span><span class="s">"nl"</span><span class="p">,</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/translatedSubtitles?sourceJobId=SOURCE_JOB_ID&amp;targetLanguage=nl&amp;apiKey=YOUR_API_KEY'</span>
+</code></pre></div>
+<blockquote>
+<p>The command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{JOB_ID}}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553871202831</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"translatedSubtitles"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Request for translated subtitles with uploaded file.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST /jobs/translatedSubtitles</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
