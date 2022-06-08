@@ -371,13 +371,16 @@
 
 <p>We will provide you with an <code>API_KEY</code> required to access our endpoints.</p>
 
-<p>When you <a href="#uploading-a-file">upload</a> a file, our transcribers or automatic speech recognition engines will get to work and create a transcript or subtitles.</p>
+<p>When you <a href="#uploading-a-file">upload</a> a file, our transcribers or automatic speech recognition engines will get to work
+and create a transcript or subtitles.</p>
 
 <ul>
-<li>Automatic transcripts and subtitles are usually ready within an hour, manually perfected ones take more time, dependent on the delivery time chosen.</li>
+<li>Automatic transcripts and subtitles are usually ready within an hour, manually perfected ones take more time,
+dependent on the delivery time chosen.</li>
 <li>Indicate jobType <code>direct</code> for automatic and jobType <code>perfect</code> for manual jobs</li>
 <li>You can check the status of a job using the <a href="#getting-the-status-of-a-transcription">status</a> endpoint.</li>
-<li>When the status is <code>DONE</code>, a job is finished and you can download the file using our <a href="#export-to-stl">export</a> endpoints.</li>
+<li>When the status is <code>DONE</code>, a job is finished, and you can download the file using our <a href="#export-to-stl">export</a>
+endpoints.</li>
 </ul>
 
 <aside class="notice">
@@ -769,36 +772,20 @@
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}'</span> <span class="nt">--form</span> <span class="nv">file</span><span class="o">=</span>@./my-file.mp3
 </code></pre></div>
 <blockquote>
-<p>Example A: POST request sent when you specify a <code>callbackUrl</code>:</p>
+<p>Example: Response to a POST request:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    
-    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{JOB_ID}}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553871202831</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>Example B: Response sent when you don&#39;t specify a <code>callbackUrl</code>:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    
-    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{JOB_ID}}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553871202831</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"translatedSubtitles"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOURCE_JOB_ID"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">present</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">translated</span><span class="w"> </span><span class="err">subtitles</span><span class="w"> </span><span class="err">jobs.</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -857,11 +844,14 @@
 <h3 id='uploading-with-callbackurl'>Uploading With <code>callbackUrl</code></h3>
 <ol>
 <li>When you make a request with a <code>callbackUrl</code>, we send the final status of your upload to this url.</li>
-<li>When processing is complete, this status is sent via a <code>POST</code> request (see <code>Example A</code> in right pane).
+<li>When processing is complete, this status is sent via a <code>POST</code> request (see below).</li>
+</ol>
 
 <ul>
 <li><code>status</code> can either be <code>DONE</code> or <code>ERROR</code>.</li>
-</ul></li>
+</ul>
+
+<ol>
 <li>Your <code>callbackUrl</code> endpoint should respond with any <code>2xx</code> if you successfully receive the status.</li>
 </ol>
 
@@ -872,15 +862,43 @@
       <li>The maximum number of retry attempts is 10.</li>
     </ul>
 </aside>
-<h3 id='uploading-without-callbackurl'>Uploading Without <code>callbackUrl</code></h3>
+
+<p>There are times when our system can encounter issues with your job. When that is the case, the callback will be sent
+with an ERROR status, and the content of the callback will look like this:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERROR"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No speech found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Otherwise, you will get a callback informing you that your job was successfully transcribed.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"captions"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='uploading-without-callbackurl'>Uploading Without <code>callbackUrl</code></h3>
 <ol>
-<li>When you make a request without the <code>callbackUrl</code>, store the value of the <code>jobId</code> returned upon a successful call (see <code>Example B</code> in right pane).</li>
-<li>Use the <code>jobId</code> to periodically check the <a href="#getting-the-status-of-a-transcription">status</a> of the upload request (e.g. every 5 mins).
+<li>When you make a request without the <code>callbackUrl</code>, store the value of the <code>jobId</code> returned upon a successful call (
+see <code>Example</code> in right pane).</li>
+<li>Use the <code>jobId</code> to periodically check the <a href="#getting-the-status-of-a-transcription">status</a> of the upload request (
+e.g. every 5 mins).</li>
+</ol>
 
 <ul>
 <li><code>status</code> can either be <code>OPEN</code>, <code>DONE</code> or <code>ERROR</code>.</li>
-</ul></li>
-</ol>
+</ul>
 <h3 id='file-requirements'>File requirements:</h3>
 <ul>
 <li>max 6GB</li>
@@ -893,9 +911,11 @@
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/translatedSubtitles</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">sourceJobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SOURCE_JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">targetLanguage</span><span class="p">:</span> <span class="dl">'</span><span class="s1">nl</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">}</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">sourceJobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">SOURCE_JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">targetLanguage</span><span class="p">:</span> <span class="dl">'</span><span class="s1">nl</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -919,15 +939,16 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{JOB_ID}}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553871202831</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUSY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"translatedSubtitles"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOURCE_JOB_ID"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -967,9 +988,11 @@
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/status</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">}</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -993,15 +1016,19 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{JOB_ID}}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1553871202831</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transcriptionStyle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verbatim"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">job</span><span class="w"> </span><span class="err">options</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">present</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">explicitly</span><span class="w"> </span><span class="err">requests</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE_NAME"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sourceJobId"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOURCE_JOB_ID"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1026,9 +1053,11 @@
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span> <span class="p">}</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1147,9 +1176,11 @@
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-stl</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1172,7 +1203,7 @@
 <p>The above command returns a JSON downloadUrl structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"downloadUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://PROD-SERVER/ebu-stl/FILENAME?X-Amz-Algorithm=HASH_ALGORITHM&amp;X-Amz-Date=CURRENT_DATE&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=TIME_TO_EXPIRATION&amp;X-Amz-Credential=AMZ_CREDENTIAL&amp;X-Amz-Signature=AMZ_SIGNATURE"</span><span class="w">
+  </span><span class="nl">"downloadUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://PROD-SERVER/ebu-stl/FILENAME?X-Amz-Algorithm=HASH_ALGORITHM&amp;X-Amz-Date=CURRENT_DATE&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=TIME_TO_EXPIRATION&amp;X-Amz-Credential=AMZ_CREDENTIAL&amp;X-Amz-Signature=AMZ_SIGNATURE"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Export a finished file to STL.</p>
@@ -1206,9 +1237,11 @@
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-srt</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1285,9 +1318,11 @@ This allows you to edit errors
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-vtt</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1366,9 +1401,11 @@ This allows you to edit errors
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-txt</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1434,9 +1471,11 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export-json</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1532,9 +1571,11 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1557,7 +1598,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <p>The command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Job deleted"</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Job deleted"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Delete a specific job.</p>
@@ -1581,9 +1622,11 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span> <span class="p">};</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -1606,48 +1649,48 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <p>The command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d2d8c996402a02bbb92"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679213751</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.mp4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"jobOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"transcriptionStyle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleanread"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d2d8c996402a02bbb92"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679213751</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transcriptionStyle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleanread"</span><span class="w"> 
     </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb85"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679174451</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">191</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.mp4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"jobOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"transcriptionStyle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleanread"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb85"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679174451</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">191</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transcriptionStyle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleanread"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb82"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679174415</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.mp4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"jobOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"transcriptionStyle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleanread"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb82"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679174415</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transcriptionStyle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleanread"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>Get a list of jobs.</p>
