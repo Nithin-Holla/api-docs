@@ -950,7 +950,7 @@ e.g. every 5 mins).</li>
     </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOURCE_JOB_ID"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"targetLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_notes"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -984,6 +984,11 @@ e.g. every 5 mins).</li>
 <td>callbackUrl (OPTIONAL)</td>
 <td>NONE</td>
 <td><code>YOUR_CALLBACK_URL</code></td>
+</tr>
+<tr>
+<td>notes (OPTIONAL)</td>
+<td>NONE</td>
+<td>Job notes</td>
 </tr>
 </tbody></table>
 <h2 id='getting-the-status-of-a-transcription'>Getting The Status Of A Transcription</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
@@ -1031,7 +1036,7 @@ e.g. every 5 mins).</li>
     </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOURCE_JOB_ID"</span><span class="p">,</span><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
     </span><span class="nl">"targetLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
-    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_notes"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
