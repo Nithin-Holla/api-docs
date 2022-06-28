@@ -1180,7 +1180,9 @@ e.g. every 5 mins).</li>
 <td>Determines the max duration (in milliseconds) a single subtitle frame should be shown. (srt only)</td>
 </tr>
 </tbody></table>
-<h2 id='export-to-stl'>Export To STL</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-stl?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h2 id='export-to-stl'>Export To STL</h2>
+<aside class="warning">DEPRECATED</aside>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-stl?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
