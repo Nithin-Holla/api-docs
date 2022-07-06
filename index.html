@@ -317,6 +317,11 @@
                   <li>
                     <a href="#language-codes" class="toc-h2 toc-link" data-title="Language Codes">Language Codes</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#uploading-and-status" class="toc-h1 toc-link" data-title="Uploading and status">Uploading and status</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#uploading-a-file" class="toc-h2 toc-link" data-title="Uploading A File">Uploading A File</a>
                   </li>
@@ -326,9 +331,11 @@
                   <li>
                     <a href="#getting-the-status-of-a-transcription" class="toc-h2 toc-link" data-title="Getting The Status Of A Transcription">Getting The Status Of A Transcription</a>
                   </li>
-                  <li>
-                    <a href="#exporting-a-finished-file" class="toc-h2 toc-link" data-title="Exporting A Finished File">Exporting A Finished File</a>
-                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#exporting" class="toc-h1 toc-link" data-title="Exporting">Exporting</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#export-to-stl" class="toc-h2 toc-link" data-title="Export To STL">Export To STL</a>
                   </li>
@@ -344,16 +351,38 @@
                   <li>
                     <a href="#export-to-json" class="toc-h2 toc-link" data-title="Export To JSON">Export To JSON</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#listing-and-deleting-jobs" class="toc-h1 toc-link" data-title="Listing and deleting jobs">Listing and deleting jobs</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#delete-a-job" class="toc-h2 toc-link" data-title="Delete A Job">Delete A Job</a>
                   </li>
                   <li>
                     <a href="#get-list-of-jobs" class="toc-h2 toc-link" data-title="Get List Of Jobs">Get List Of Jobs</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#glossary" class="toc-h1 toc-link" data-title="Glossary">Glossary</a>
+              <ul class="toc-list-h2">
                   <li>
-                    <a href="#support" class="toc-h2 toc-link" data-title="Support">Support</a>
+                    <a href="#get-a-list-of-glossaries" class="toc-h2 toc-link" data-title="Get a list of glossaries">Get a list of glossaries</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-glossary" class="toc-h2 toc-link" data-title="Create a glossary">Create a glossary</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-glossary" class="toc-h2 toc-link" data-title="Update a glossary">Update a glossary</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-glossary" class="toc-h2 toc-link" data-title="Delete a glossary">Delete a glossary</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#support" class="toc-h1 toc-link" data-title="Support">Support</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -734,7 +763,7 @@ endpoints.</li>
 <td>zu-za</td>
 </tr>
 </tbody></table>
-<h2 id='uploading-a-file'>Uploading A File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}"</span><span class="o">)</span>
+<h1 id='uploading-and-status'>Uploading and status</h1><h2 id='uploading-a-file'>Uploading A File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/upload-media?transcriptionType=transcription&amp;jobType=direct&amp;language=nl&amp;apiKey={{YOUR_API_KEY}}"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
@@ -841,6 +870,11 @@ endpoints.</li>
 <td>NONE</td>
 <td><code>pl</code>, <code>en</code>, <code>ru</code>, <code>fr-ca</code>, <code>ca</code>, <code>zh</code>, <code>ga</code>, <code>hu</code>, <code>pt</code>, <code>da</code>, <code>de-at</code>, <code>fr</code>, <code>nl</code>, <code>en-au</code>, <code>ko</code>, <code>it</code>, <code>de</code>, <code>fi</code>, <code>cmn</code>, <code>ja</code>, <code>de-ch</code>, <code>en-us</code>, <code>ro</code>, <code>pt-br</code>, <code>nl-be</code>, <code>cs</code>, <code>no</code>, <code>sv</code>, <code>en-uk</code>, <code>es</code></td>
 </tr>
+<tr>
+<td>glossaryId (OPTIONAL)</td>
+<td>NONE</td>
+<td><code>YOUR_GLOSSARY_ID</code></td>
+</tr>
 </tbody></table>
 <h3 id='uploading-with-callbackurl'>Uploading With <code>callbackUrl</code></h3>
 <ol>
@@ -900,6 +934,12 @@ e.g. every 5 mins).</li>
 <ul>
 <li><code>status</code> can either be <code>OPEN</code>, <code>DONE</code> or <code>ERROR</code>.</li>
 </ul>
+<h3 id='uploading-with-glossaryid'>Uploading With <code>glossaryId</code></h3>
+<p>When using a <code>glossaryId</code> with your request, you first need to have created a glossary to be used. <a href="##get-a-list-of-glossaries">Read here</a> for more information on how to work with glossaries. You can either:
+- <a href="##create-a-glossary">Create a new glossary</a> and use the <code>id</code> of the glossary as <code>glossaryId</code> in your upload request.</p>
+
+<p>or
+- <a href="(##get-a-list-of-glossaries)">List your previously created glossaries</a> and pick an <code>id</code> of the glossary that you want to use as <code>glossaryId</code> in your upload request.</p>
 <h3 id='file-requirements'>File requirements:</h3>
 <ul>
 <li>max 6GB</li>
@@ -1057,130 +1097,7 @@ e.g. every 5 mins).</li>
 <td>YOUR_JOB_ID</td>
 </tr>
 </tbody></table>
-<h2 id='exporting-a-finished-file'>Exporting A Finished File</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/status?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/export</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">jobId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">JOB_ID</span><span class="dl">'</span><span class="p">,</span> <span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">,</span> <span class="na">format</span><span class="p">:</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
-
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/jobs/export"</span>
-
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"jobId"</span><span class="p">:</span><span class="s">"JOB_ID"</span><span class="p">,</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">,</span><span class="s">"format"</span><span class="p">:</span><span class="s">"json"</span><span class="p">}</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="s">""</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/export?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY&amp;format=json'</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c9e45057103e464a4c6f477"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RECORD_ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"speakers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"spkid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spk1"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker 1"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"spkid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spk2"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker 2"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"spkid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spk3"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker 3"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"segments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"speaker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spk1"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"words"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goedemiddag"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.11</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.68</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"conf"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welkom"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.68</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.01</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"conf"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"speaker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spk2"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"words"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vragen"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.14</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.9</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"conf"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uur."</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.98</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.4</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"conf"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<aside class="warning">DEPRECATED</aside>
-
-<p>Export a finished file to several formats.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET /jobs/export</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description/Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>jobId</td>
-<td>NONE</td>
-<td>YOUR_JOB_ID</td>
-</tr>
-<tr>
-<td>format</td>
-<td><code>json</code></td>
-<td><code>xml</code>, <code>json</code>, <code>srt</code></td>
-</tr>
-<tr>
-<td>maxCharsPerSubtitle (OPTIONAL)</td>
-<td>50</td>
-<td>Determines the maximum number of characters per subtitle frame. A subtitle frame has two lines. (srt only)</td>
-</tr>
-<tr>
-<td>subtitleDurationMax (OPTIONAL)</td>
-<td>4500</td>
-<td>Determines the max duration (in milliseconds) a single subtitle frame should be shown. (srt only)</td>
-</tr>
-</tbody></table>
-<h2 id='export-to-stl'>Export To STL</h2>
+<h1 id='exporting'>Exporting</h1><h2 id='export-to-stl'>Export To STL</h2>
 <aside class="warning">DEPRECATED</aside>
 <div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/export-stl?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
@@ -1217,9 +1134,9 @@ e.g. every 5 mins).</li>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Export a finished file to STL.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /jobs/export-stl</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1293,9 +1210,9 @@ you is the edit function.
 This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to SRT.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /jobs/export-srt</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1376,9 +1293,9 @@ you is the edit function.
 This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to VTT.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET /jobs/export-vtt</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1441,9 +1358,9 @@ This allows you to edit errors
 Speaker 1: Hi, welcome to Amber script, in this short video, we would like to show you how you can use Amber script at its full potential. The first function we would like to show you is the edit function. This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to TEXT.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /jobs/export-txt</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1561,9 +1478,9 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Export a finished file to JSON.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /jobs/export-json</code></p>
-<h3 id='query-parameters-9'>Query Parameters</h3>
+<h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1577,7 +1494,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <td>YOUR_JOB_ID</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-job'>Delete A Job</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+<h1 id='listing-and-deleting-jobs'>Listing and deleting jobs</h1><h2 id='delete-a-job'>Delete A Job</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs?jobId=JOB_ID&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code> <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
 
@@ -1612,9 +1529,9 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Delete a specific job.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>DELETE /jobs</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1704,9 +1621,9 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>Get a list of jobs.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET /jobs</code></p>
-<h3 id='query-parameters-11'>Query Parameters</h3>
+<h3 id='query-parameters-10'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1745,7 +1662,498 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 <td>Number of records to be retrieved for each page (maximum: <code>100</code>).</td>
 </tr>
 </tbody></table>
-<h2 id='support'>Support</h2>
+<h1 id='glossary'>Glossary</h1>
+<p>You can make use of a glossary to help improve the quality of your transcription, captions and translated subtitles. Note that a glossary is only used for perfect jobs, as special instructions to transcribers.</p>
+<h2 id='get-a-list-of-glossaries'>Get a list of glossaries</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/glossary?apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/glossary</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/glossary"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/glossary?apiKey=YOUR_API_KEY'</span>
+</code></pre></div>
+<blockquote>
+<p>The command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb85"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_USERNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of first glossary"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Test name one"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Test name two"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item one name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item one"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item two name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item two"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679174451</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb86"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_USERNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of second glossary"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Test name one"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Test name two"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item one name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item one"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item two name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item two"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679175000</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Get a list of glossaries.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>GET /glossary</code></p>
+<h3 id='query-parameters-11'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description/Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sortBy (OPTIONAL)</td>
+<td>&quot;created&quot;</td>
+<td>Field by which to sort the resulting list of glossaries.</td>
+</tr>
+<tr>
+<td>sortDirection (OPTIONAL)</td>
+<td><code>DESC</code></td>
+<td><code>DESC</code> or <code>ASC</code></td>
+</tr>
+</tbody></table>
+<h2 id='create-a-glossary'>Create a glossary</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">String</span> <span class="n">body</span> <span class="o">=</span> <span class="s">"{\n"</span> <span class="o">+</span>
+    <span class="s">"  \"name\": \"Name of first glossary\",\n"</span> <span class="o">+</span>
+    <span class="s">"  \"names\": [\n"</span> <span class="o">+</span>
+    <span class="s">"    \"Test name one\",\n"</span> <span class="o">+</span>
+    <span class="s">"    \"Test name two\"\n"</span> <span class="o">+</span>
+    <span class="s">"  ],\n"</span> <span class="o">+</span>
+    <span class="s">"  \"items\": [\n"</span> <span class="o">+</span>
+    <span class="s">"    {\n"</span> <span class="o">+</span>
+    <span class="s">"      \"name\": \"Item one name\",\n"</span> <span class="o">+</span>
+    <span class="s">"      \"description\": \"description of item one\"\n"</span> <span class="o">+</span>
+    <span class="s">"    },\n"</span> <span class="o">+</span>
+    <span class="s">"    {\n"</span> <span class="o">+</span>
+    <span class="s">"      \"name\": \"Item two name\",\n"</span> <span class="o">+</span>
+    <span class="s">"      \"description\": \"description of item two\"\n"</span> <span class="o">+</span>
+    <span class="s">"    }\n"</span> <span class="o">+</span>
+    <span class="s">"  ]\n"</span> <span class="o">+</span>
+    <span class="s">"}"</span><span class="o">;</span>
+<span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/glossary?apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Name of first glossary</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">names</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">"</span><span class="s2">Test name one</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">Test name two</span><span class="dl">"</span>
+  <span class="p">],</span>
+  <span class="dl">"</span><span class="s2">items</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Item one name</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">description of item one</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Item two name</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">description of item two</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/glossary</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">body</span>
+<span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/glossary"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Name of first glossary</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  </span><span class="se">\"</span><span class="s">names</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    </span><span class="se">\"</span><span class="s">Test name one</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    </span><span class="se">\"</span><span class="s">Test name two</span><span class="se">\"\n</span><span class="s">"</span> \
+          <span class="s">"  ],</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  </span><span class="se">\"</span><span class="s">items</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    {</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Item one name</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">description</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">description of item one</span><span class="se">\"\n</span><span class="s">"</span> \
+          <span class="s">"    },</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    {</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Item two name</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">description</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">description of item two</span><span class="se">\"\n</span><span class="s">"</span> \
+          <span class="s">"    }</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  ]</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"}"</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/glossary?apiKey=YOUR_API_KEY'</span> <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="nt">--data-raw</span> <span class="s1">'{
+    "name":"Name of first glossary",
+    "names": [
+      "Test name one",
+      "Test name two"
+    ],
+    "items":[
+        {
+            "name":{{glossaryItem1Name}},
+            "description":{{glossaryItem1Description}}
+        },
+        {
+            "name":"{{glossaryItem2Name}}",
+            "description":{{glossaryItem2Description}}
+        }
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb85"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_USERNAME"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of first glossary"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Test name one"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Test name two"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item one name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item one"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item two name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item two"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679174451</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Create a glossary.</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>POST /glossary</code></p>
+<h3 id='body-json'>Body JSON</h3><h3 id='userglossary'>UserGlossary</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string <br><small>maxLength: 60</small></td>
+<td>Name of the glossary.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>names</td>
+<td>[string] <br><small>maxItems: 15</small> <br><small>maxItemLength: 20</small></td>
+<td>Array of names.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>items</td>
+<td>[object] <br><small>maxItems: 20</small></td>
+<td>Array of glossary items. <a href="###glossaryitem">GlossaryItem</a> format is described in the table bellow.</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h3 id='glossaryitem'>GlossaryItem</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item.name</td>
+<td>string <br><small>maxLength: 60</small></td>
+<td>Term which is being described.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>item.description</td>
+<td>string <br><small>maxLength: 200</small></td>
+<td>Description of the term.</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-glossary'>Update a glossary</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">String</span> <span class="n">body</span> <span class="o">=</span> <span class="s">"{\n"</span> <span class="o">+</span>
+    <span class="s">"  \"name\": \"Name of first glossary\",\n"</span> <span class="o">+</span>
+    <span class="s">"  \"names\": [\n"</span> <span class="o">+</span>
+    <span class="s">"    \"Test name one\",\n"</span> <span class="o">+</span>
+    <span class="s">"    \"Test name two\"\n"</span> <span class="o">+</span>
+    <span class="s">"  ],\n"</span> <span class="o">+</span>
+    <span class="s">"  \"items\": [\n"</span> <span class="o">+</span>
+    <span class="s">"    {\n"</span> <span class="o">+</span>
+    <span class="s">"      \"name\": \"Item one name\",\n"</span> <span class="o">+</span>
+    <span class="s">"      \"description\": \"description of item one\"\n"</span> <span class="o">+</span>
+    <span class="s">"    },\n"</span> <span class="o">+</span>
+    <span class="s">"    {\n"</span> <span class="o">+</span>
+    <span class="s">"      \"name\": \"Item two name\",\n"</span> <span class="o">+</span>
+    <span class="s">"      \"description\": \"description of item two\"\n"</span> <span class="o">+</span>
+    <span class="s">"    }\n"</span> <span class="o">+</span>
+    <span class="s">"  ]\n"</span> <span class="o">+</span>
+    <span class="s">"}"</span><span class="o">;</span>
+<span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/glossary/GLOSSARY_ID?apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">header</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Name of first glossary</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">names</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">"</span><span class="s2">Test name one</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">Test name two</span><span class="dl">"</span>
+  <span class="p">],</span>
+  <span class="dl">"</span><span class="s2">items</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Item one name</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">description of item one</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Item two name</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">description of item two</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PUT</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/glossary/GLOSSARY_ID</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">body</span>
+<span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/glossary/GLOSSARY_ID"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Name of first glossary</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  </span><span class="se">\"</span><span class="s">names</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    </span><span class="se">\"</span><span class="s">Test name one</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    </span><span class="se">\"</span><span class="s">Test name two</span><span class="se">\"\n</span><span class="s">"</span> \
+          <span class="s">"  ],</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  </span><span class="se">\"</span><span class="s">items</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    {</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Item one name</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">description</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">description of item one</span><span class="se">\"\n</span><span class="s">"</span> \
+          <span class="s">"    },</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"    {</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Item two name</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"      </span><span class="se">\"</span><span class="s">description</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">description of item two</span><span class="se">\"\n</span><span class="s">"</span> \
+          <span class="s">"    }</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"  ]</span><span class="se">\n</span><span class="s">"</span> \
+          <span class="s">"}"</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> PUT <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/glossary/GLOSSARY_ID?apiKey=YOUR_API_KEY'</span> <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="nt">--data-raw</span> <span class="s1">'{
+    "name":"Name of first glossary",
+    "names": [
+      "Test name one",
+      "Test name two"
+    ],
+    "items":[
+        {
+            "name":{{glossaryItem1Name}},
+            "description":{{glossaryItem1Description}}
+        },
+        {
+            "name":"{{glossaryItem2Name}}",
+            "description":{{glossaryItem2Description}}
+        }
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f686d068c996402a02bbb85"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_USERNAME"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of first glossary"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Test name one"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Test name two"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item one name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item one"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item two name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of item two"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600679174451</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Update a specific glossary.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>PUT /glossary/GLOSSARY_ID</code></p>
+<h3 id='body-json-2'>Body JSON</h3><h3 id='userglossary-2'>UserGlossary</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string <br><small>maxLength: 60</small></td>
+<td>Name of the glossary.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>names</td>
+<td>[string] <br><small>maxItems: 15</small> <br><small>maxItemLength: 20</small></td>
+<td>Array of names.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>items</td>
+<td>[object] <br><small>maxItems: 20</small></td>
+<td>Array of glossary items. <a href="###glossaryitem">GlossaryItem</a> format is described in the table bellow.</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h3 id='glossaryitem-2'>GlossaryItem</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item.name</td>
+<td>string <br><small>maxLength: 60</small></td>
+<td>Term which is being described.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>item.description</td>
+<td>string <br><small>maxLength: 200</small></td>
+<td>Description of the term.</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-glossary'>Delete a glossary</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/glossary/GLOSSARY_ID?apiKey=YOUR_API_KEY"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/glossary/GLOSSARY_ID</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span><span class="na">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">YOUR_API_KEY</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.amberscript.com/api/glossary/GLOSSARY_ID"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"apiKey"</span><span class="p">:</span><span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> DELETE <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/glossary/GLOSSARY_ID?apiKey=YOUR_API_KEY'</span>
+</code></pre></div>
+<p>Delete a specific glossary.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>DELETE /glossary/GLOSSARY_ID</code></p>
+<h1 id='support'>Support</h1>
 <p>If you need any technical assistance, feel free to contact <code>info (at) amberscript (dot) com</code></p>
 <h1 id='errors'>Errors</h1>
 <table><thead>
