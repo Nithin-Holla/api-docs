@@ -954,6 +954,183 @@ e.g. every 5 mins).</li>
 </ul>
 
 <p><em>If you need support for a different file format, please get in touch with us: info (at) amberscript (dot) com</em></p>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/upload-media-from-url?apiKey={{YOUR_API_KEY}}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="s">"{\"sourceUrl\":\"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4\", \"language\":\"en\", \"transcriptionType\":\"transcription\"}"</span><span class="o">,</span> <span class="err">\</span><span class="s">"jobType\":\"Direct\", \"numberOfSpeakers    \":\"2\"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">asJson</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://api.amberscript.com/api/jobs/upload-media-from-url</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">sourceUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">apiKey</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">YOUR_API_KEY</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">transcriptionType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">transcription</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">jobType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">direct</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">language</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nl</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">numberOfSpeakers</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span><span class="dl">'</span><span class="s1">content-type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.amberscript.com/api/jobs/upload-media-from-url'</span>
+<span class="n">query_string</span> <span class="o">=</span> <span class="p">{</span><span class="s">"apiKey"</span><span class="p">:</span> <span class="s">"YOUR_API_KEY"</span><span class="p">}</span>
+<span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s">"sourceUrl"</span><span class="p">:</span> <span class="s">"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"</span><span class="p">,</span> <span class="s">"jobType"</span><span class="p">:</span> <span class="s">"direct"</span><span class="p">,</span>
+        <span class="s">"language"</span><span class="p">:</span> <span class="s">"nl"</span><span class="p">,</span> <span class="s">"transcriptionType"</span><span class="p">:</span> <span class="s">"transcription"</span><span class="p">,</span> <span class="s">"numberOfSpeakers"</span><span class="p">:</span> <span class="s">"2"</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">query_string</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/jobs/upload-media-from-url?apiKey={{YOUR_API_KEY}}'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{"sourceUrl" : "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4","transcriptionType":"transcription","jobType":"direct","language":"nl"}'</span> <span class="se">\</span>
+</code></pre></div>
+<blockquote>
+<p>Example: Response to a POST request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jobStatus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"translatedSubtitles"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"perfect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceJobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOURCE_JOB_ID"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">present</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">translated</span><span class="w"> </span><span class="err">subtitles</span><span class="w"> </span><span class="err">jobs.</span><span class="w">
+    </span><span class="nl">"targetLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Upload a audio/video media for transcription from an URL.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /jobs/upload-media-from-url</code></p>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description/Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>language</td>
+<td><code>en</code></td>
+<td><code>af-za</code>, <code>sq-al</code>, <code>am-et</code>, <code>ar</code>, <code>hy-am</code>, <code>az-az</code>, <code>id-id</code>, <code>eu-es</code>, <code>bn-bd</code>, <code>bn-in</code>, <code>bs-ba</code>, <code>bg</code>, <code>my-mm</code>, <code>ca</code>, <code>cmn</code>, <code>hr</code>, <code>cs</code>, <code>da</code>, <code>nl</code>, <code>en-au</code>, <code>en-uk</code>, <code>en</code>, <code>et-ee</code>, <code>fa-ir</code>, <code>fil-ph</code>, <code>fi</code>, <code>nl-be</code>, <code>fr-ca</code>, <code>fr</code>, <code>gl-es</code>, <code>ka-ge</code>, <code>de-at</code>, <code>de-ch</code>, <code>de</code>, <code>el</code>, <code>gu-in</code>, <code>iw-il</code>, <code>hi</code>, <code>hu</code>, <code>is-is</code>, <code>it</code>, <code>ja</code>, <code>jv-id</code>, <code>kn-in</code>, <code>km-kh</code>, <code>ko</code>, <code>lo-la</code>, <code>lv</code>, <code>lt</code>, <code>mk-mk</code>, <code>ms</code>, <code>ml-in</code>, <code>mr-in</code>, <code>mn-mn</code>, <code>ne-np</code>, <code>no</code>, <code>pl</code>, <code>pt-br</code>, <code>pt</code>, <code>pa-guru-in</code>, <code>ro</code>, <code>ru</code>, <code>sr-rs</code>, <code>si-lk</code>, <code>sk</code>, <code>sl</code>, <code>es</code>, <code>su-id</code>, <code>sw-ke</code>, <code>sw-tz</code>, <code>sv</code>, <code>ta-in</code>, <code>ta-my</code>, <code>ta-sg</code>, <code>ta-lk</code>, <code>te-in</code>, <code>th-th</code>, <code>tr</code>, <code>uk-ua</code>, <code>ur-in</code>, <code>ur-pk</code>, <code>uz-uz</code>, <code>vi-vn</code>, <code>zu-za</code></td>
+</tr>
+<tr>
+<td>transcriptionType</td>
+<td><code>transcription</code></td>
+<td><code>transcription</code>, <code>captions</code>, <code>translatedSubtitles</code></td>
+</tr>
+<tr>
+<td>jobType</td>
+<td><code>direct</code></td>
+<td><code>perfect</code>, <code>direct</code></td>
+</tr>
+<tr>
+<td>numberOfSpeakers</td>
+<td><code>2</code></td>
+<td><code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code></td>
+</tr>
+<tr>
+<td>callbackUrl (OPTIONAL)</td>
+<td>NONE</td>
+<td><code>YOUR_CALLBACK_URL</code></td>
+</tr>
+<tr>
+<td>transcriptionStyle (OPTIONAL)</td>
+<td><code>cleanread</code></td>
+<td><code>cleanread</code>, <code>verbatim</code></td>
+</tr>
+<tr>
+<td>turnaroundTime (OPTIONAL)</td>
+<td><code>FIVE_DAYS</code> - <code>transcription</code>/<code>captions</code>, <code>SEVEN_DAYS</code> - <code>translatedSubtitles</code></td>
+<td>Hint: Get in touch if you need a turnaround time other than the default one.</td>
+</tr>
+<tr>
+<td>targetLanguage (OPTIONAL)</td>
+<td>NONE</td>
+<td><code>pl</code>, <code>en</code>, <code>ru</code>, <code>fr-ca</code>, <code>ca</code>, <code>zh</code>, <code>ga</code>, <code>hu</code>, <code>pt</code>, <code>da</code>, <code>de-at</code>, <code>fr</code>, <code>nl</code>, <code>en-au</code>, <code>ko</code>, <code>it</code>, <code>de</code>, <code>fi</code>, <code>cmn</code>, <code>ja</code>, <code>de-ch</code>, <code>en-us</code>, <code>ro</code>, <code>pt-br</code>, <code>nl-be</code>, <code>cs</code>, <code>no</code>, <code>sv</code>, <code>en-uk</code>, <code>es</code></td>
+</tr>
+</tbody></table>
+<h3 id='uploading-with-callbackurl-2'>Uploading With <code>callbackUrl</code></h3>
+<ol>
+<li>When you make a request with a <code>callbackUrl</code>, we send the final status of your upload to this url.</li>
+<li>When processing is complete, this status is sent via a <code>POST</code> request (see below).</li>
+</ol>
+
+<ul>
+<li><code>status</code> can either be <code>DONE</code> or <code>ERROR</code>.</li>
+</ul>
+
+<ol>
+<li>Your <code>callbackUrl</code> endpoint should respond with any <code>2xx</code> if you successfully receive the status.</li>
+</ol>
+
+<aside class="notice">
+   What if a callback fails?
+    <ul>
+      <li>When a callback fails, we retry sending the status update every hour.</li>
+      <li>The maximum number of retry attempts is 10.</li>
+    </ul>
+</aside>
+
+<p>There are times when our system can encounter issues with your job. When that is the case, the callback will be sent
+with an ERROR status, and the content of the callback will look like this:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERROR"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transcription"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"errorMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No speech found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Otherwise, you will get a callback informing you that your job was successfully transcribed.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jobId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JOB_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">82800000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nrAudioSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transcriptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"captions"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file_name.mp3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jobType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='uploading-without-callbackurl-2'>Uploading Without <code>callbackUrl</code></h3>
+<ol>
+<li>When you make a request without the <code>callbackUrl</code>, store the value of the <code>jobId</code> returned upon a successful call (
+see <code>Example</code> in right pane).</li>
+<li>Use the <code>jobId</code> to periodically check the <a href="#getting-the-status-of-a-transcription">status</a> of the upload request (
+e.g. every 5 mins).</li>
+</ol>
+
+<ul>
+<li><code>status</code> can either be <code>OPEN</code>, <code>DONE</code> or <code>ERROR</code>.</li>
+</ul>
+<h3 id='file-requirements-2'>File requirements:</h3>
+<ul>
+<li>max 16GB</li>
+<li>audio or video file</li>
+<li>supported formats: <code>wav</code>, <code>mp3</code>, <code>mp4</code>, <code>aac</code>, <code>m4a</code>, <code>wma</code>, <code>opus</code>, <code>ogg</code>, <code>flac</code>, <code>aac</code>, <code>dss</code>, <code>avi</code>, <code>wmv</code>, <code>mov</code>, <code>mp4</code>, <code>m4v</code>, <code>mpg</code>, <code>vob</code></li>
+</ul>
+
+<p><em>If you need support for a different file format, please get in touch with us: info (at) amberscript (dot) com</em></p>
 <h2 id='request-for-translated-subtitles-for-an-existing-manual-captions-job'>Request for translated subtitles for an existing manual captions job</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/translatedSubtitles?sourceJobId=SOURCE_JOB_ID&amp;targetLanguage=nl&amp;apiKey=YOUR_API_KEY"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asString</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">);</span>
@@ -1001,7 +1178,7 @@ e.g. every 5 mins).</li>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Request for translated subtitles with uploaded file.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST /jobs/translatedSubtitles</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -1087,7 +1264,7 @@ e.g. every 5 mins).</li>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retrieve the status of a specific job.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /jobs/status</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
@@ -1140,7 +1317,7 @@ e.g. every 5 mins).</li>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Export a finished file to STL.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /jobs/export-stl</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -1216,7 +1393,7 @@ you is the edit function.
 This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to SRT.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET /jobs/export-srt</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
@@ -1299,7 +1476,7 @@ you is the edit function.
 This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to VTT.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /jobs/export-vtt</code></p>
 <h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
@@ -1364,7 +1541,7 @@ This allows you to edit errors
 Speaker 1: Hi, welcome to Amber script, in this short video, we would like to show you how you can use Amber script at its full potential. The first function we would like to show you is the edit function. This allows you to edit errors
 </code></pre></div>
 <p>Export a finished file to TEXT.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /jobs/export-txt</code></p>
 <h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
@@ -1484,7 +1661,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Export a finished file to JSON.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET /jobs/export-json</code></p>
 <h3 id='query-parameters-8'>Query Parameters</h3>
 <table><thead>
@@ -1535,7 +1712,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Delete a specific job.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>DELETE /jobs</code></p>
 <h3 id='query-parameters-9'>Query Parameters</h3>
 <table><thead>
@@ -1627,7 +1804,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>Get a list of jobs.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET /jobs</code></p>
 <h3 id='query-parameters-10'>Query Parameters</h3>
 <table><thead>
@@ -1744,7 +1921,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>Get a list of glossaries.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET /glossary</code></p>
 <h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
@@ -1895,7 +2072,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Create a glossary.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST /glossary</code></p>
 <h3 id='body-json'>Body JSON</h3><h3 id='userglossary'>UserGlossary</h3>
 <table><thead>
@@ -2077,7 +2254,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Update a specific glossary.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>PUT /glossary/GLOSSARY_ID</code></p>
 <h3 id='body-json-2'>Body JSON</h3><h3 id='userglossary-2'>UserGlossary</h3>
 <table><thead>
@@ -2157,7 +2334,7 @@ Speaker 1: Hi, welcome to Amber script, in this short video, we would like to sh
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> DELETE <span class="nt">--url</span> <span class="s1">'https://api.amberscript.com/api/glossary/GLOSSARY_ID?apiKey=YOUR_API_KEY'</span>
 </code></pre></div>
 <p>Delete a specific glossary.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>DELETE /glossary/GLOSSARY_ID</code></p>
 <h1 id='support'>Support</h1>
 <p>If you need any technical assistance, feel free to contact <code>info (at) amberscript (dot) com</code></p>
