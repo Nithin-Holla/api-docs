@@ -326,6 +326,9 @@
                     <a href="#uploading-a-file" class="toc-h2 toc-link" data-title="Uploading A File">Uploading A File</a>
                   </li>
                   <li>
+                    <a href="#uploading-a-file-by-url" class="toc-h2 toc-link" data-title="Uploading A File by URL">Uploading A File by URL</a>
+                  </li>
+                  <li>
                     <a href="#request-for-translated-subtitles-for-an-existing-manual-captions-job" class="toc-h2 toc-link" data-title="Request for translated subtitles for an existing manual captions job">Request for translated subtitles for an existing manual captions job</a>
                   </li>
                   <li>
@@ -955,7 +958,7 @@ e.g. every 5 mins).</li>
 
 <p><em>If you need support for a different file format, please get in touch with us: info (at) amberscript (dot) com</em></p>
 <div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">HttpResponse</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="nc">Unirest</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"https://api.amberscript.com/api/jobs/upload-media-from-url?apiKey={{YOUR_API_KEY}}"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="s">"{\"sourceUrl\":\"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4\", \"language\":\"en\", \"transcriptionType\":\"transcription\"}"</span><span class="o">,</span> <span class="err">\</span><span class="s">"jobType\":\"Direct\", \"numberOfSpeakers    \":\"2\"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="s">"{\"sourceUrl\":\"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4\", \"language\":\"en\", \"transcriptionType\":\"transcription\"}"</span><span class="o">,</span> <span class="err">\</span><span class="s">"jobType\":\"direct\", \"numberOfSpeakers    \":\"2\"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">asJson</span><span class="o">();</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
@@ -1012,9 +1015,7 @@ e.g. every 5 mins).</li>
     </span><span class="nl">"targetLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">OPTIONAL</span><span class="p">,</span><span class="w"> </span><span class="err">translatedSubtitles</span><span class="w"> </span><span class="err">only</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Upload a audio/video media for transcription from an URL.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h2 id='uploading-a-file-by-url'>Uploading A File by URL</h2><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST /jobs/upload-media-from-url</code></p>
 <h3 id='request-body-parameters'>Request Body Parameters</h3>
 <table><thead>
@@ -1043,6 +1044,11 @@ e.g. every 5 mins).</li>
 <td>numberOfSpeakers</td>
 <td><code>2</code></td>
 <td><code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code></td>
+</tr>
+<tr>
+<td>sourceUrl</td>
+<td>``</td>
+<td>&quot;https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4&quot;</td>
 </tr>
 <tr>
 <td>callbackUrl (OPTIONAL)</td>
